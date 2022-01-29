@@ -1,4 +1,4 @@
-package tech.getarrays.employeemanager;
+package tech.getarrays.employeemanager.Resource;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +19,9 @@ public class EmployeeResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Employee>> getAllEmployees()
-    {
-        List<Employee> employees = employeeService.findAllEmployee();
+    public ResponseEntity<List<Employee>> getAllEmployees () {
+        List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
-
     }
     @GetMapping("/find/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id)
@@ -45,7 +43,7 @@ public class EmployeeResource {
         Employee newEmployee = employeeService.updateEmployee(employee);
         return new ResponseEntity<>(newEmployee,HttpStatus.OK);
     }
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?>deleteEmployee(@PathVariable("id") Long id)
     {
         employeeService.deleteEmployee(id);

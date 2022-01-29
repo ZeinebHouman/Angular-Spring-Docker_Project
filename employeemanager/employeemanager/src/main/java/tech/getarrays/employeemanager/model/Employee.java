@@ -28,6 +28,10 @@ public class Employee implements Serializable {
         this.employeeCode = employeeCode;
     }
 
+    public Employee() {
+
+    }
+
     public long getId() {
         return id;
     }

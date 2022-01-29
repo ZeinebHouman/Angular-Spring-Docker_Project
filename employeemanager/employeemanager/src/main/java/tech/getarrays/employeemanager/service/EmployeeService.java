@@ -6,10 +6,12 @@ import tech.getarrays.employeemanager.Exception.UserNotFoundException;
 import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.repository.EmployeeRepo;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
 
@@ -24,7 +26,7 @@ public class EmployeeService {
         return employeeRepo.save(employee);
     }
 
-    public List<Employee> findAllEmployee()
+    public List<Employee> findAllEmployees()
     {
         return employeeRepo.findAll();
     }
@@ -32,6 +34,7 @@ public class EmployeeService {
     {
         return employeeRepo.save(employee);
     }
+
     public Employee findEmployeeById(Long id)
     {
         return employeeRepo.findEmployeeById(id)
