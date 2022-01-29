@@ -27,7 +27,7 @@ public class Employee implements Serializable {
         this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
     }
-
+ 
     public Employee() {
 
     }
